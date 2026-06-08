@@ -1,0 +1,8 @@
+# Archivos del sistema operativo y del editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Archivos de registro
+*.log

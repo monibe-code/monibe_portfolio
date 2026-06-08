@@ -1,0 +1,616 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Portfolio profesional de MoniBe, desarrolladora de aplicaciones web con experiencia en interfaces dinámicas y minimalistas."
+    />
+    <title>MoniBe - Portfolio Profesional</title>
+    <link rel="icon" type="image/png" href="img/logo_monibe_o_fondoVerde-circular.png"/>
+    <link rel="stylesheet" href="estilazo.css" />
+    <!--<link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />-->
+<link href="https://api.fontshare.com/v2/css?f[]=chillax@500&display=swap" rel="stylesheet">
+<link href="https://api.fontshare.com/v2/css?f[]=satoshi@400&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div id="main-container">
+      <!-- Barra superior con hamburguesa, logo, nombre y barra de audio (invisible al inicio) -->
+      <div id="topbar" class="hidden">
+              <button
+        id="hamburger"
+        class="hidden menu03"
+        aria-label="Abrir menú de navegación"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+        <div class="topbar-brand">
+          <img src="img/logo_monibe_o_fondoVerde-removebg-preview.png" alt="Logo MoniBe" id="topbar-logo" />
+          <h1><span id="topbar-name">MoniBe</span></h1>
+      </div>
+
+      <button id="music-control" aria-label="Controlar música de fondo" title="Silenciar / Activar música">
+        <div class="loading-wave">
+          <div class="loading-bar"></div>
+          <div class="loading-bar"></div>
+          <div class="loading-bar"></div>
+          <div class="loading-bar"></div>
+        </div>
+        <audio id="bg-music" loop>
+          <source src="audio/Independent Music Licensing Collective (IMLC) - Ambience4.mp3" type="audio/mpeg" />
+          Tu navegador no soporta el elemento de audio.
+        </audio>
+      </button>
+  </div>
+
+      <aside id="terminal-side">
+        <!-- Contenido de la terminal -->
+        <div id="terminal">
+          <div id="output">
+            <h1><strong>MoniBe Portfolio [Versión MRB.01 (2026)]</strong></h1>
+            <!-- Primera pregunta del sistema -->
+             <p class="system-question">¿Eres desarrollador/a? (s/n)</p>
+          </div>
+          <div class="input-line">
+            <span class="prompt" id="terminal-prompt">></span>
+            <input
+              type="search"
+              id="commandInput"
+              autofocus
+              autocomplete="off"
+              spellcheck="false"
+              aria-label="Consola de comandos"
+            />
+            <button id="send-btn" aria-label="Enviar comando">↵</button>
+          </div>
+        </div>
+
+        <!-- Animación de carga-->
+         <div id="loader" class="hidden">
+            <div class="loader-content">
+              <div class="loader">
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+                <div class="circle"></div>
+              </div>
+              <p class="loader-text">Preparando la experiencia para ti...</p>
+              
+            </div>
+          </div>
+
+        <!-- Menú de navegación (invisible al inicio) -->
+        <nav id="side-menu" class="hidden">
+          <ul class="nav-links">
+            <li><a href="#monibe">MoniBe</a></li>
+            <li><a href="#pasado">Pasado</a></li>
+            <li><a href="#presente">Presente</a></li>
+            <li><a href="#proyectos">Proyectos</a></li>
+            <li><a href="#creditos">Créditos</a></li>
+            <li><a href="#contacto-mini">Contacto</a></li>
+          </ul>
+          <div class="social-icons">
+            <a href="https://www.linkedin.com/in/monibe/" target="_blank" class="social-btn" title="Visitar mi perfil de LinkedIn">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" class="icon-svg">
+                <path fill-rule="evenodd" d="M3 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm1.102 4.297a1.195 1.195 0 1 0 0-2.39a1.195 1.195 0 0 0 0 2.39m1 7.516V6.234h-2v6.579zM6.43 6.234h2v.881c.295-.462.943-1.084 2.148-1.084c1.438 0 2.219.953 2.219 2.766c0 .087.008.484.008.484v3.531h-2v-3.53c0-.485-.102-1.438-1.18-1.438c-1.079 0-1.17 1.198-1.195 1.982v2.986h-2z" clip-rule="evenodd"/>
+              </svg>
+            </a>
+
+            <a href="https://github.com/monibe-code" target="_blank" class="social-btn" title="Ver mis proyectos en GitHub">
+              <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" class="icon-svg">
+                <path d="M12 .999c-6.074 0-11 5.05-11 11.278c0 4.983 3.152 9.21 7.523 10.702c.55.104.727-.246.727-.543v-2.1c-3.06.683-3.697-1.33-3.697-1.33c-.5-1.304-1.222-1.65-1.222-1.65c-.998-.7.076-.686.076-.686c1.105.08 1.686 1.163 1.686 1.163c.98 1.724 2.573 1.226 3.201.937c.098-.728.383-1.226.698-1.508c-2.442-.286-5.01-1.253-5.01-5.574c0-1.232.429-2.237 1.132-3.027c-.114-.285-.49-1.432.107-2.985c0 0 .924-.303 3.026 1.156c.877-.25 1.818-.375 2.753-.38c.935.005 1.876.13 2.755.38c2.1-1.459 3.023-1.156 3.023-1.156c.598 1.554.222 2.701.108 2.985c.706.79 1.132 1.796 1.132 3.027c0 4.332-2.573 5.286-5.022 5.565c.394.35.754 1.036.754 2.088v3.095c0 .3.176.652.734.542C19.852 21.484 23 17.258 23 12.277C23 6.048 18.075.999 12 .999"/>
+              </svg>
+            </a>
+          </div>
+
+          <footer class="menu-footer">
+            <a href="politica-de-privacidad.html">Política de privacidad</a>
+            <p>&copy;<span id="year"></span> MoniBe</p>
+          </footer>
+        </nav>
+      </aside>
+
+      <!-- ==========   PORTFOLIO   ========== -->
+<main id="portfolio-content" class="hidden">
+
+        <!-- SECCIÓN INICIAL CORREGIDA (FUSIÓN ESTILO ARTÍSTICO + LAS OES CON ONDAS) -->
+        <section class="hero-brutalista" id="monibe">
+          
+          <!-- Columna Izquierda: Tu logotipo original con las ondas funcionales -->
+          <div class="hero-left">
+            
+            <h2 class="monibe-logo-static">MoniBe</h2>
+
+            <!-- ESTE CONTENEDOR AHORA ENVUELVE TODO EL TEXTO GIGANTE -->
+            <div class="mouse-glow-container" id="mouseContainer">
+              <div class="hero-title-massive">
+                
+                <!-- Ondas en APLICACIONES -->
+                <div class="linea-grande">
+                  APLICACI<span class="logo-o-container">O<span class="wave-inside"></span><span class="wave-inside"></span><span class="wave-inside"></span><span class="wave-inside"></span></span>NES
+                </div>
+                
+                <div class="linea-grande"><span class="italica-xl">web</span></div>
+                
+                <!-- Ondas en CÓDIGO (Separamos la tilde para que no se mueva) -->
+                <div class="linea-grande">
+                  & PR<span class="logo-o-container">O<span class="wave-inside"></span><span class="wave-inside"></span><span class="wave-inside"></span><span class="wave-inside"></span></span>GRAMACI<span class="logo-o-container">Ó<span class="wave-inside"></span><span class="wave-inside"></span><span class="wave-inside"></span><span class="wave-inside"></span></span>N
+                </div>
+                
+                <div class="linea-grande"><span class="italica-xl">empática</span></div>
+
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Columna Derecha: mi historia resumida y directa -->
+          <div class="hero-right">
+            <div class="disponibilidad">
+              <span class="punto-verde"></span> Disponible para proyectos
+            </div>
+            
+            <p class="descripcion-intro">
+              Soy <strong>Mónica Becker</strong>, desarrolladora de aplicaciones web. <br>Mi camino a través de la psicología, la acupuntura y el quiromasaje me aporta una perspectiva única para el diseño centrado en las personas. <br> Me enfoco en crear experiencias digitales que sean intuitivas, limpias y, sobre todo, humanas.
+            </p>
+          </div>
+
+          
+          <button class="btn-contacto-hero" id="btnContacto" aria-label="Abrir formulario de contacto" type="button">
+            <span class="btn-text">Hablemos</span>
+            <span class="btn-dots" aria-hidden="true">···</span>
+          </button>
+
+          <div class="hero-scroll-indicator">
+            <img src="img/flecha_hacia_abajo-removebg.png" alt="Flecha hacia abajo" class="scroll-arrow">
+            <span class="scroll-text">desliza suavemente hacia abajo</span>
+          </div>
+
+        </section>
+
+        
+      <!-- FRASE DE TRANSICIÓN PRE-VÍDEO -->
+      <div class="frase-transicion-contenedor seccion-prevideo">
+        <section class="frase-transicion-bloque">
+          <div class="frase-wrapper">
+            <p class="frase-transicion-texto linea-1">
+              Endereza tu espalda, relaja los hombros y respira....
+            </p>
+            <p class="frase-transicion-texto linea-2">
+              Acompáñame en este viaje en el tiempo donde veremos...
+            </p>
+          </div>
+        </section>
+      </div>
+        <!-- SECCIÓN DEL VÍDEO -->
+        <div id="video-section">
+          <div class="video-sticky">
+            <video id="v0" muted playsinline preload="auto">
+              <source
+                src="/video/transicion_masaje_ordenador.webm"
+                type="video/webm"
+              />
+            </video>
+            <div class="video-overlay-text">
+              <h3 id="frase1" class="frase-animada">mi pasado</h3>
+              <h3 id="frase2" class="frase-animada">y</h3>
+              <h3 id="frase3" class="frase-animada">mi presente</h3>
+            </div>
+          </div>
+        </div>
+
+  <!-- SECCION PASADO (Estructura corregida y limpia) -->
+  <section class="seccion-pasado" id="pasado">
+    <div class="pasado-header">
+        <h2 class="pasado-title">Pasado</h2>
+        <hr class="pasado-divider">
+    </div>
+    
+    <div class="pasado-slider-wrapper">
+      <!-- El track SOLO debe contener los tres bloques ".pasado-slide" -->
+      <div class="pasado-track" id="pasadoTrack">
+
+        <!-- SLIDE 1: Formación -->
+        <div class="pasado-slide">
+
+          <span class="pasado-label">Formación y experiencia</span>
+
+          <div class="pasado-cards-horizontal">
+            <div class="pasado-card-horizontal-item">
+              <div class="icon-circle">
+                <img src="img/logo-psicologia-removebg.png" alt="Psicóloga">
+              </div>
+              <div class="text-pill">Psicóloga Licenciada</div>
+            </div>
+            <div class="pasado-card-horizontal-item">
+              <div class="icon-circle">
+                <img src="img/logo-quiromasaje-removebg.png" alt="Quiromasajista">
+              </div>
+              <div class="text-pill">Quiromasajista titulada</div>
+            </div>
+            <div class="pasado-card-horizontal-item">
+              <div class="icon-circle">
+                <img src="img/logo-osteopatia-removebg.png" alt="Osteópata">
+              </div>
+              <div class="text-pill">Osteópata diplomada</div>
+            </div>
+            <div class="pasado-card-horizontal-item">
+              <div class="icon-circle">
+                <img src="img/logo-acupuntura-removebg.png" alt="Acupuntora">
+              </div>
+              <div class="text-pill">Maestra Acupuntora</div>
+            </div>
+            <div class="pasado-card-horizontal-item">
+              <div class="icon-circle">
+                <img src="img/logo-terapias-alternativas-removebg.png" alt="Terapias Alternativas">
+              </div>
+              <div class="text-pill">Terapeuta alternativa</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 2: Trayectoria Geográfica -->
+        <div class="pasado-slide">
+          <span class="pasado-label">Trayectoria Geográfica</span>
+
+          <div class="pasado-content-row-maps">
+            <div class="pasado-locations">
+              <svg class="pasado-pin-svg" viewBox="0 0 24 30" xmlns="http://www.w3.org/2000/svg">
+                <path d="M12 0C7.6 0 4 3.6 4 8c0 6 8 18 8 18s8-12 8-18c0-4.4-3.6-8-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/>
+              </svg>
+              <p class="pasado-locations-label">HE TRABAJADO EN:</p>
+
+              <div class="pasado-cities-viewport">
+                <div class="pasado-cities-track">
+                  <p class="pasado-city">Granada</p>
+                  <p class="pasado-city">Marbella</p>
+                  <p class="pasado-city">Mallorca</p>
+                  <p class="pasado-city">Alemania</p>
+                  <p class="pasado-city">Suiza</p>
+                  <p class="pasado-city">Granada</p>
+                  <p class="pasado-city">Marbella</p>
+                  <p class="pasado-city">Mallorca</p>
+                  <p class="pasado-city">Alemania</p>
+                  <p class="pasado-city">Suiza</p>
+                </div>
+              </div>
+              <p class="pasado-account-note">Por cuenta ajena <br> y por<br>cuenta propia</p>
+            </div>
+
+            <div class="pasado-map-container">
+              <div class="pasado-map-overlay"></div>
+              <img src="img/mapa-mundi.png" alt="Mapa de trayectoria" class="pasado-map-img">
+            </div>
+          </div>
+        </div>
+
+        <!-- SLIDE 3: Skills -->
+        <div class="pasado-slide">
+          <span class="pasado-label">Skills adquiridas</span>
+
+          <div class="pasado-skills-list">
+            <div class="pasado-skill-pill">Dominio de tres idiomas: Español/Inglés/Alemán</div>
+            <div class="pasado-skill-pill">Comunicación asertiva y de alto standing</div>
+            <div class="pasado-skill-pill">Empatía emocional</div>
+            <div class="pasado-skill-pill">Gestión del estrés y calma bajo presión</div>
+            <div class="pasado-skill-pill">Resiliencia y gestión del cambio</div>
+            <div class="pasado-skill-pill">Mentalidad de crecimiento y evolución contínua</div>
+          </div>
+        </div>
+
+      </div> <!-- /pasadoTrack -->
+
+      <!-- Flechas globales de navegación: ahora quedan FIJAS fuera del track móvil -->
+      <button class="pasado-arrow pasado-arrow-left" id="pasadoPrev" aria-label="Anterior">
+        <svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg>
+      </button>
+      <button class="pasado-arrow pasado-arrow-right" id="pasadoNext" aria-label="Siguiente">
+        <svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg>
+      </button>
+
+    </div> <!-- /pasado-slider-wrapper -->
+
+    <!-- Puntos indicadores inferiores -->
+    <div class="pasado-dots">
+      <div class="pasado-dot active" data-index="0"></div>
+      <div class="pasado-dot"        data-index="1"></div>
+      <div class="pasado-dot"        data-index="2"></div>
+    </div>
+  </section>
+
+    <!-- SECCIÓN FRASE TRANSICIÓN PRESENTE-PASADO (beige-verde)-->
+    <div class="frase-transicion-contenedor frase-transicion-2 seccion-pasadopresente">
+      <section class="frase-transicion-bloque">
+        <div class="frase-wrapper">
+          <p class="frase-transicion-texto linea-1">
+            Mi pasado en Psicología y Bienestar me ayuda a entender al usuario.
+          </p>
+          <p class="frase-transicion-texto linea-2">
+            Mi presente en código, me permite construir la solución. 
+          </p>
+        </div>
+      </section>
+    </div>
+    <!-- SECCIÓN PRESENTE (verde-beige)-->
+    <section class="seccion-presente" id="presente">
+        <div class="presente-header">
+            <h2>Presente</h2>
+            <hr class="proyectos-divider-2">
+            <p class="titulacion">Técnico Superior en Desarrollo de Aplicaciones Web (DAW)</p>
+        </div>
+
+        <!-- Contenedor del Slider -->
+        <div class="presente-slider-wrapper">
+            <div class="presente-track" id="presenteTrack">
+                
+                <!-- SLIDE 1: El Programa Zen (Interactividad API) -->
+                <div class="presente-slide zen-slide">
+                    <div class="zen-container">
+                        <p class="zen-description">
+                            Lo que estás a punto de experimentar es un ejemplo práctico del uso de una <strong>API externa</strong> para dotar a la web de dinamismo e interactividad. <br>He creado una colección estructurada de datos, llamada <code class="zen-code">ProgramaZen.json</code>, la cual se encuentra alojada de forma pública en mi repositorio de <a href="https://github.com/monibe-code/ProgramaZen" target="_blank" class="zen-link">GitHub</a>.
+                        </p>
+                        <h3 class="zen-subtitle" id="zenInstruction">Aprieta el botón de ProgramaZen para descubrir tu frase del día:</h3>
+                        <div class="zen-button-wrapper" id="zenButtonWrapper">
+                            <button id="btnProgramaZen" class="btn-zen">ProgramaZen</button>
+                        </div>
+                        <div id="zenPhraseDisplay" class="zen-phrase-display hidden"></div>
+                    </div>
+                </div> <!-- /zen-slide -->
+
+                <!-- SLIDE 2: Las Skills Adquiridas -->
+                <div class="presente-slide skills-slide">
+                  <p class="hardskills">Algunas de las HardSkills adquiridas</p>
+                    <div class="skills-container">
+                        <details class="array-category">
+                            <summary>[ Frontend_Core ]</summary>
+                            <div class="skills-list">
+                                <span class="skill-badge">HTML5</span>
+                                <span class="skill-badge">CSS3</span>
+                                <span class="skill-badge">JavaScript</span>
+                                <span class="skill-badge">TypeScript</span>
+                                <span class="skill-badge">JQuery</span>
+                                <span class="skill-badge">Angular</span>
+                                <span class="skill-badge">Bootstrap</span>
+                            </div>
+                        </details>
+                        <details class="array-category">
+                            <summary>[ Backend_Logic ]</summary>
+                            <div class="skills-list">
+                                <span class="skill-badge">Java</span>
+                                <span class="skill-badge">PHP</span>
+                                <span class="skill-badge">Python</span>
+                                <span class="skill-badge">APIs REST</span>
+                            </div>
+                        </details>
+                        <details class="array-category">
+                            <summary>[ Data_&_Storage ]</summary>
+                            <div class="skills-list">
+                                <span class="skill-badge">SQL</span>
+                                <span class="skill-badge">MariaDB</span>
+                                <span class="skill-badge">MongoDB</span>
+                                <span class="skill-badge">MySQL</span>
+                            </div>
+                        </details>
+                        <details class="array-category">
+                            <summary>[ AI ]</summary>
+                            <div class="skills-list">
+                                <span class="skill-badge">Claude</span>
+                                <span class="skill-badge">Gemini</span>
+                                <span class="skill-badge">Chat GPT</span>
+                                <span class="skill-badge">NoteBookLM</span>
+                                <span class="skill-badge">GenSpark</span>
+                            </div>
+                        </details>
+                    </div> <!-- /skills-container -->
+                </div> <!-- /skills-slide -->
+
+            </div> <!-- /presente-track -->
+
+            <!-- Flechas de navegación del Slider Presente -->
+            <button class="presente-arrow presente-arrow-left" id="presentePrev" aria-label="Anterior slide">
+                <svg viewBox="0 0 24 24"><path d="M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z"/></svg>
+            </button>
+            <button class="presente-arrow presente-arrow-right" id="presenteNext" aria-label="Siguiente slide">
+                <svg viewBox="0 0 24 24"><path d="M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z"/></svg>
+            </button>
+        </div> <!-- /presente-slider-wrapper -->
+
+        <!-- Puntos indicadores del Slider -->
+        <div class="presente-dots">
+            <div class="presente-dot active" data-index="0"></div>
+            <div class="presente-dot" data-index="1"></div>
+        </div>
+
+    </section>
+    <!-- SECCIÓN INTERACTIVA ONDAS (beige-verde) -->
+        <section class="wave-section" id="interactive-area">
+          <div class="stone-cursor" id="stone"></div>
+
+          <h2>Si has llegado hasta aquí, ¡te mereces un descanso!</h2>
+          <p>(Haz clic en cualquier parte de esta sección para generar relajantes ondas)</p>
+        </section>
+
+
+    <!-- SECCIÓN PROYECTOS (verde-beige)-->
+    <section class="seccion-proyectos" id="proyectos">
+      <h2 class="proyectos-title">Proyectos</h2>
+      <hr class="proyectos-divider">
+      <p class="algunos-proyectos">Algunos de los trabajos realizados recientemente</p>
+
+      <div class="proyectos-grid">
+
+        <div class="proyecto-card" tabindex="0">
+          <div class="proyecto-card-bg" style="background-image: url('img/asociacion_parkinson_granada_versionMovil_sepia-2.png')"></div>
+          <div class="proyecto-card-content">
+            <h3 class="proyecto-name">Asociación Parkinson</h3>
+            <p class="proyecto-copy">
+              <span class="proyecto-tag">WordPress</span>
+              <span class="proyecto-tag">CSS Custom</span>
+              <span class="proyecto-tag">WooCommerce</span>
+            </p>
+            <a href="https://parkinson-granada.es/" target="_blank" class="proyecto-btn btn-primary" aria-label="Ver Web">
+              <svg viewBox="0 0 24 24" class="btn-icon"><path d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.128 2.121 6.967-7.07 4.025 4.149v-10.27z"/></svg>
+              Ver Web
+            </a>
+          </div>
+        </div>
+
+        <div class="proyecto-card" tabindex="0">
+          <div class="proyecto-card-bg" style="background-image: url('img/restaurante_ramirez_versionMovil_sepia.png')"></div>
+          <div class="proyecto-card-content">
+            <h3 class="proyecto-name">Restaurante Ramírez</h3>
+            <p class="proyecto-copy">
+              <span class="proyecto-tag">UI/UX</span>
+              <span class="proyecto-tag">Hooks</span>
+              <span class="proyecto-tag">WordPress</span>
+            </p>
+            <a href="https://restauranteramirez.es/" target="_blank" class="proyecto-btn btn-primary" aria-label="Ver Web">
+              <svg viewBox="0 0 24 24" class="btn-icon"><path d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.128 2.121 6.967-7.07 4.025 4.149v-10.27z"/></svg>
+              Ver Web
+            </a>
+          </div>
+        </div>
+
+        <div class="proyecto-card" tabindex="0">
+          <div class="proyecto-card-bg" style="background-image: url('img/gestoria_carvajal_versionMovil_sepia.png')"></div>
+          <div class="proyecto-card-content">
+            <h3 class="proyecto-name">Solicitors Mazarrón</h3>
+            <p class="proyecto-copy">
+              <span class="proyecto-tag">PHP</span>
+              <span class="proyecto-tag">Inglés</span>
+              <span class="proyecto-tag">SPA</span>
+            </p>
+            <a href="https://solicitorsmazarron.com/" target="_blank" class="proyecto-btn btn-primary" aria-label="Ver Web">
+              <svg viewBox="0 0 24 24" class="btn-icon"><path d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.128 2.121 6.967-7.07 4.025 4.149v-10.27z"/></svg>
+              Ver Web
+            </a>
+          </div>
+        </div>
+
+        <div class="proyecto-card" tabindex="0">
+          <div class="proyecto-card-bg" style="background-image: url('img/lecturamos_versionMovil_sepia.png')"></div>
+          <div class="proyecto-card-content">
+            <h3 class="proyecto-name">Lecturamos (PIM)</h3>
+            <p class="proyecto-copy">
+              <span class="proyecto-tag">CMS</span>
+              <span class="proyecto-tag">MySQL</span>
+              <span class="proyecto-tag">PHP</span>
+            </p>
+            <a href="https://lecturamos.com/lecturamos-login/" target="_blank" class="proyecto-btn btn-primary" aria-label="Ver Web">
+              <svg viewBox="0 0 24 24" class="btn-icon"><path d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.128 2.121 6.967-7.07 4.025 4.149v-10.27z"/></svg>
+              Ver Web
+            </a>
+          </div>
+        </div>
+
+        <div class="proyecto-card" tabindex="0">
+          <div class="proyecto-card-bg" style="background-image: url('img/notas_matrix_versionMovil_sepia.png')"></div>
+          <div class="proyecto-card-overlay"></div>
+          <div class="proyecto-card-content">
+            <h3 class="proyecto-name">Notas estilo Matrix</h3>
+            <p class="proyecto-copy">
+              <span class="proyecto-tag">HTML / CSS</span>
+              <span class="proyecto-tag">JavaScript</span>
+              <span class="proyecto-tag">GitHub</span>
+            </p>
+            <a href="https://monibe-code.github.io/mis-notas-matrix/" target="_blank" class="proyecto-btn btn-primary" aria-label="Ver Web">
+              <svg viewBox="0 0 24 24" class="btn-icon"><path d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.128 2.121 6.967-7.07 4.025 4.149v-10.27z"/></svg>
+              Ver Web
+            </a>
+          </div>
+        </div>
+
+        <div class="proyecto-card" tabindex="0">
+          <div class="proyecto-card-bg" style="background-image: url('img/cei_mediterraneo_versionMovil_sepia.png')"></div>
+          <div class="proyecto-card-content">
+            <h3 class="proyecto-name">CEI Mediterráneo</h3>
+            <p class="proyecto-copy">
+              <span class="proyecto-tag">AI</span>
+              <span class="proyecto-tag">WordPress</span>
+              <span class="proyecto-tag">CSS Custom</span>
+            </p>
+            <a href="https://ceimediterraneo.es/" target="_blank" class="proyecto-btn btn-primary" aria-label="Ver Web">
+              <svg viewBox="0 0 24 24" class="btn-icon"><path d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.128 2.121 6.967-7.07 4.025 4.149v-10.27z"/></svg>
+              Ver Web
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SECCIÓN CONTACTO / FORMULARIO-->
+    <section class="seccion-formulario" id="contacto">
+
+      <!-- MINI-PANEL: opciones abajo a la derecha -->
+      <div id="contacto-mini" class="contacto-mini" aria-hidden="true">
+        <div class="contacto-mini-header">
+          <span>¿De qué quieres que hablemos?</span>
+          <button id="contacto-mini-cerrar" class="contacto-mini-cerrar" aria-label="Cerrar">✕</button>
+        </div>
+        <div class="contacto-mini-opciones">
+          <button class="contacto-opcion" data-tema="video">🎥 ¡Qué guay el vídeo scrolleable de las manos! ¿Cómo lo has hecho?</button>
+          <button class="contacto-opcion" data-tema="proyecto">🤝 Me gustaría proponerte un proyecto en el que colaborar.</button>
+          <button class="contacto-opcion" data-tema="cv">📄 Soy reclutador/a y me gustaría acceder a tu CV.</button>
+          <button class="contacto-opcion" data-tema="corazon">🫶 Soy tu madre y...quiero darle un ❤️ a tu página!!!</button>
+        </div>
+      </div>
+
+      <!-- PANEL RESPUESTA: overlay pantalla completa -->
+      <div id="contacto-panel" class="contacto-panel" aria-hidden="true">
+        <button id="contacto-cerrar" class="contacto-cerrar" aria-label="Cerrar">✕</button>
+        <div id="contacto-respuesta" class="contacto-respuesta"></div>
+      </div>
+
+    </section>
+
+    <!-- SECCIÓN FOOTER-->
+    <section class="footer" id="footer-section">
+      <div class="footer-grid">
+        <div class="footer-col col-left">
+          <button id="btn-reiniciar" class="btn-subir-circular" aria-label="Volver al inicio">
+            <svg class="icon-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="18 15 12 9 6 15"></polyline>
+            </svg>
+          </button>
+        </div>
+
+        <div class="footer-col col-center">
+          <p class="footer-frase">
+            ¡GRACIAS POR LA VISITA!
+          </p>
+        </div>
+
+        <div class="footer-col col-right"></div>
+      </div>
+    </section>
+
+    <!-- SECCION CREDITOS MUSCA-->
+    <div id="modal-creditos" class="modal hidden">
+      <div class="modal-content">
+        <button id="cerrar-modal" class="modal-close-btn" aria-label="Cerrar ventana">&times;</button>
+        
+        <h3 class="modal-title">Créditos de música</h3>
+        <hr class="modal-divider">
+        
+        <ul class="modal-list">
+          <li><strong>Título de la canción:</strong> Ambience4</li>
+          <li><strong>Nombre del artista:</strong> Independent Music Licensing Collective (IMLC)</li>
+          <li><strong>Fuente:</strong> Free Music Archive</li>
+          <li><strong>Tipo de licencia:</strong> CC BY-NC-ND</li>
+        </ul>
+      </div>
+    </div>
+            
+    <script src="script_general.js" type="module"></script>
+    <script src="script-API.js" type="text/javascript"></script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  </body>
+</html>
