@@ -1416,6 +1416,7 @@ strong {
 .linea-2 {
     transform: translate(calc(-50% + 120vw), -50%);
     opacity: 0;
+    color: var(--color-dark-slate);
 }
 
 /* Responsive */
@@ -1855,6 +1856,23 @@ strong {
     min-height: 100vh;
     background: linear-gradient(to bottom, #4a5759, #f7e1d7);
     
+}
+/* Frases visibles y centradas (sin animación de scroll) */
+.seccion-pasadopresente .frase-wrapper {
+    flex-direction: column;
+    gap: 1.5rem;
+    height: auto;
+}
+
+.seccion-pasadopresente .frase-transicion-texto {
+    position: relative;        /* Saca del posicionamiento absoluto */
+    left: unset;
+    top: unset;
+    transform: none;           /* Elimina el translate que las ocultaba */
+    opacity: 1;
+    white-space: normal;
+    text-align: center;
+    padding: 0 2rem;
 }
 /* =========================================================================
     SECCION PRESENTE

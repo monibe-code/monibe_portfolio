@@ -198,6 +198,7 @@ function updateVideo() {
 // LÓGICA DE MOVIMIENTO DE LAS FRASES TRANSICIONALES (Cualquier Sección)
 function actualizarFrasesTransicion(contenedor, progreso) {
     if (!contenedor) return;
+    if (contenedor.classList.contains('seccion-pasadopresente')) return;
     const linea1 = contenedor.querySelector('.linea-1');
     const linea2 = contenedor.querySelector('.linea-2');
     if (!linea1 || !linea2) return;
@@ -275,6 +276,7 @@ function onTouchMoveFrase(e) {
 function activarScrollFrase(contenedor) {
     seccionActiva = contenedor;
     fraseScrollActivo = true;
+        if (contenedor.classList.contains('seccion-pasadopresente')) return;
     portfolioContent.style.overflowY = 'hidden';
     window.addEventListener('wheel', onWheelFrase, { passive: false });
     window.addEventListener('touchstart', onTouchStartFrase, { passive: true });
