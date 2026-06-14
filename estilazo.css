@@ -4287,3 +4287,60 @@ strong {
     grid-template-columns: 1fr;
   }
 }
+
+/* ==========================================================================
+   CROSSFADE SECTION — Móvil/Tablet (≤1024px)
+   En escritorio se oculta; en móvil reemplaza visualmente al #video-section
+   ========================================================================== */
+
+/* En escritorio: ocultar el crossfade */
+#crossfade-section {
+    display: none;
+}
+
+/* En móvil/tablet: ocultar el vídeo y mostrar el crossfade */
+@media (max-width: 1024px) {
+    #video-section {
+        display: none;
+    }
+
+    #crossfade-section {
+        display: block;
+        height: 300vh; /* Misma altura que el vídeo para que el scroll sea equivalente */
+        position: relative;
+        width: 100%;
+        background-color: var(--color-dark-slate);
+    }
+
+    .crossfade-sticky {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        background-color: var(--color-dark-slate);
+        -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+        mask-image: linear-gradient(to bottom, transparent 0%, black 15%, black 85%, transparent 100%);
+    }
+
+    .crossfade-img-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+    }
+
+    .crossfade-img {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        opacity: 0;
+        transition: opacity 0.7s ease;
+    }
+
+    /* La primera imagen empieza visible */
+    #cf-img1 {
+        opacity: 1;
+    }
+}

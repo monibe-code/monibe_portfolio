@@ -1066,3 +1066,48 @@ function abrirPanel(tema) {
 
 
 })();
+
+// ── CROSSFADE SECTION (solo tablet/móvil ≤1024px) ──────────────────────────
+(function () {
+    const crossfadeSection = document.getElementById('crossfade-section');
+    if (!crossfadeSection) return;
+
+    // Solo activamos en dispositivos donde el crossfade es visible
+    if (window.innerWidth > 1024) return;
+
+    const img1 = document.getElementById('cf-img1');
+    const img2 = document.getElementById('cf-img2');
+    const imgs = [img1, img2];
+
+    // Las tres franjas de progreso (0–1) que activan cada imagen
+    // Coinciden con los mismos umbrales que usa el vídeo en escritorio
+    const franjas = [
+        { desde: 0,    hasta: 0.55 },  // "mi pasado"
+        { desde: 0.45, hasta: 1.00 },  // "y mi presente"
+    ];
+
+    function getProgreso() {
+        const rect = crossfadeSection.getBoundingClientRect();
+        const windowHeight = window.innerHeight;
+        const totalHeight = crossfadeSection.offsetHeight - windowHeight;
+        const progreso = -rect.top / totalHeight;
+        return Math.min(Math.max(progreso, 0), 1);
+    }
+
+    function actualizarCrossfade() {
+        const p = getProgreso();
+        imgs.forEach((img, i) => {
+            const { desde, hasta } = franjas[i];
+            const visible = p >= desde && p < hasta;
+            img.style.opacity = visible ? '1' : '0';
+        });
+    }
+
+    // Escucha el scroll del contenedor principal (igual que el resto del portfolio)
+    if (portfolioContent) {
+        portfolioContent.addEventListener('scroll', actualizarCrossfade, { passive: true });
+    }
+
+    // Estado inicial
+    actualizarCrossfade();
+})();
