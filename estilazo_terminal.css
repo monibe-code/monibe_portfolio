@@ -82,61 +82,6 @@ body {
     font-weight: 500;
 }
 
-/* ==========================================================================
-   PANTALLA DE BIENVENIDA SIMPLE (sustituye a la terminal interactiva)
-   ========================================================================== */
-#welcome-screen {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-}
-
-.welcome-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1.25rem;
-    padding: 2rem;
-}
-
-.welcome-title {
-    font-family: 'Chillax', sans-serif;
-    font-size: clamp(2.5rem, 8vw, 4rem);
-    letter-spacing: 0.05em;
-    color: #ffffff;
-    margin: 0;
-}
-
-.welcome-subtitle {
-    font-family: 'Satoshi', sans-serif;
-    font-size: clamp(1rem, 2.5vw, 1.25rem);
-    color: var(--color-bg-subtle);
-    margin: 0;
-}
-
-.welcome-btn {
-    margin-top: 0.75rem;
-    padding: 0.9rem 2.2rem;
-    font-family: 'Satoshi', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: 0.02em;
-    color: var(--color-dark-slate);
-    background: var(--color-accent-green);
-    border: none;
-    border-radius: 999px;
-    cursor: pointer;
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.welcome-btn:hover,
-.welcome-btn:focus-visible {
-    background-color: var(--color-accent-pink);
-    transform: scale(1.05);
-}
-
 /* Limpia los estilos raros que añaden los móviles a los inputs de tipo search */
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,

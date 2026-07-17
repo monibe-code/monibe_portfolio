@@ -51,26 +51,12 @@
   </div>
 
       <aside id="terminal-side">
-
-        <!-- Pantalla de bienvenida simple (sustituye a la terminal interactiva) -->
-        <div id="welcome-screen">
-          <div class="welcome-content">
-            <h1 class="welcome-title">MONIBE</h1>
-            <p class="welcome-subtitle">Portfolio de Mónica Becker</p>
-            <button id="btn-iniciar-experiencia" class="welcome-btn">Iniciar experiencia</button>
-          </div>
-        </div>
-
-        <!--
-          SECCIÓN TERMINAL — DESACTIVADA
-          Se sustituye por la pantalla de bienvenida simple de arriba: la gente no
-          entendía qué hacer con el prompt de terminal y no llegaba a entrar al
-          portfolio. Se deja comentada por si se quiere recuperar más adelante.
-
+        <!-- Contenido de la terminal -->
         <div id="terminal">
           <div id="output">
             <h1><strong>MoniBe Portfolio [Versión MRB.01 (2026)]</strong></h1>
-            <p class="system-question">¿Eres desarrollador/a? (s/n)</p>
+            <!-- Primera pregunta del sistema -->
+             <p class="system-question">¿Eres desarrollador/a? (s/n)</p>
           </div>
           <div class="input-line">
             <span class="prompt" id="terminal-prompt">></span>
@@ -85,7 +71,6 @@
             <button id="send-btn" aria-label="Enviar comando">↵</button>
           </div>
         </div>
-        -->
 
         <!-- Animación de carga-->
          <div id="loader" class="hidden">

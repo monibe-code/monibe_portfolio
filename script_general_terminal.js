@@ -126,7 +126,7 @@ function transitionToPortfolio(instantaneo = false) {
     const loader = document.getElementById('loader');
     const delay = instantaneo ? 0 : 2500;
  
-    if (terminalUI) terminalUI.classList.add('hidden');
+    terminalUI.classList.add('hidden');
     if (!instantaneo && loader) loader.classList.remove('hidden');
  
     setTimeout(() => {
@@ -297,29 +297,17 @@ function desactivarScrollFrase() {
 // 4. ESCUCHADORES DE EVENTOS
 // ==========================================
 
-if (commandInput) {
-    commandInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Enter' || e.keyCode === 13) {
-            e.preventDefault();
-            submitCommand();
-        }
-    });
-}
+commandInput.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.keyCode === 13) {
+        e.preventDefault();
+        submitCommand();
+    }
+});
 
 if (sendBtn) {
     sendBtn.addEventListener('click', function() {
         submitCommand();
         commandInput.focus();
-    });
-}
-
-// Pantalla de bienvenida simple: el botón lleva directo al loader
-const btnIniciarExperiencia = document.getElementById('btn-iniciar-experiencia');
-if (btnIniciarExperiencia) {
-    btnIniciarExperiencia.addEventListener('click', () => {
-        const welcomeScreen = document.getElementById('welcome-screen');
-        if (welcomeScreen) welcomeScreen.classList.add('hidden');
-        transitionToPortfolio();
     });
 }
 
