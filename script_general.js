@@ -127,6 +127,8 @@ function transitionToPortfolio(instantaneo = false) {
     const delay = instantaneo ? 0 : 2500;
  
     if (terminalUI) terminalUI.classList.add('hidden');
+    const welcomeScreen = document.getElementById('welcome-screen');
+    if (welcomeScreen) welcomeScreen.classList.add('hidden');
     if (!instantaneo && loader) loader.classList.remove('hidden');
  
     setTimeout(() => {
@@ -317,8 +319,6 @@ if (sendBtn) {
 const btnIniciarExperiencia = document.getElementById('btn-iniciar-experiencia');
 if (btnIniciarExperiencia) {
     btnIniciarExperiencia.addEventListener('click', () => {
-        const welcomeScreen = document.getElementById('welcome-screen');
-        if (welcomeScreen) welcomeScreen.classList.add('hidden');
         transitionToPortfolio();
     });
 }
@@ -704,11 +704,31 @@ if (modalCreditos) {
 
   // Contenidos por tema
   const respuestas = {
-    video: `
-      <h3>¡Me alegra que te haya gustado! 🎥</h3>
-      <p style="color: #f7e1d7;">El proceso empezó fuera del código: generé dos imágenes con IA (una de manos haciendo masaje, otra de manos tecleando) y las usé como fotogramas clave. Luego, con otra IA generé la transición entre ambas, obteniendo un vídeo corto y fluido.</p>
-      <p style="color: #f7e1d7;">En cuanto al código, el vídeo funciona con <strong>scroll-driven animation</strong>: un <code style="color: #f7e1d7;">&lt;video&gt;</code> pausado al que actualizo <code style="color: #f7e1d7;">currentTime</code> según el progreso del scroll dentro de un contenedor <code>sticky</code>. Puro JS + CSS, sin librerías.</p>
-      <p style="color: #f7e1d7;">Lo próximo en mi lista de deseos técnicos: aprender <strong>GSAP</strong> para llevar este tipo de animaciones a otro nivel. Tengo ideas en mente... 👀</p>
+    contacto: `
+      <h3>¡Hablemos! 📩</h3>
+      <p style="color: #f7e1d7;">Puedes escribirme directamente a <a href="mailto:hola.monibe@gmail.com" style="color: var(--color-accent-pink); text-decoration: underline; text-underline-offset: 2px;">hola.monibe@gmail.com</a>, o por aquí:</p>
+      <div class="social-icons" style="justify-content: center; padding-left: 0; margin: 1.5rem 0 0.5rem;">
+        <a href="https://www.linkedin.com/in/monibe/" target="_blank" class="social-btn" title="LinkedIn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 16 16" class="icon-svg">
+            <path fill-rule="evenodd" d="M3 1a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V3a2 2 0 0 0-2-2zm1.102 4.297a1.195 1.195 0 1 0 0-2.39a1.195 1.195 0 0 0 0 2.39m1 7.516V6.234h-2v6.579zM6.43 6.234h2v.881c.295-.462.943-1.084 2.148-1.084c1.438 0 2.219.953 2.219 2.766c0 .087.008.484.008.484v3.531h-2v-3.53c0-.485-.102-1.438-1.18-1.438c-1.079 0-1.17 1.198-1.195 1.982v2.986h-2z" clip-rule="evenodd"/>
+          </svg>
+        </a>
+        <a href="https://github.com/monibe-code" target="_blank" class="social-btn" title="GitHub">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" class="icon-svg">
+            <path d="M12 .999c-6.074 0-11 5.05-11 11.278c0 4.983 3.152 9.21 7.523 10.702c.55.104.727-.246.727-.543v-2.1c-3.06.683-3.697-1.33-3.697-1.33c-.5-1.304-1.222-1.65-1.222-1.65c-.998-.7.076-.686.076-.686c1.105.08 1.686 1.163 1.686 1.163c.98 1.724 2.573 1.226 3.201.937c.098-.728.383-1.226.698-1.508c-2.442-.286-5.01-1.253-5.01-5.574c0-1.232.429-2.237 1.132-3.027c-.114-.285-.49-1.432.107-2.985c0 0 .924-.303 3.026 1.156c.877-.25 1.818-.375 2.753-.38c.935.005 1.876.13 2.755.38c2.1-1.459 3.023-1.156 3.023-1.156c.598 1.554.222 2.701.108 2.985c.706.79 1.132 1.796 1.132 3.027c0 4.332-2.573 5.286-5.022 5.565c.394.35.754 1.036.754 2.088v3.095c0 .3.176.652.734.542C19.852 21.484 23 17.258 23 12.277C23 6.048 18.075.999 12 .999"/>
+          </svg>
+        </a>
+        <a href="https://www.facebook.com/profile.php?id=61592705676465&locale=es_ES" target="_blank" class="social-btn" title="Facebook">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" class="icon-svg">
+            <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z"/>
+          </svg>
+        </a>
+        <a href="https://www.instagram.com/monibe_dev/" target="_blank" class="social-btn" title="Instagram">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 24 24" class="icon-svg">
+            <path d="M7.0301.084c-1.2768.0602-2.1487.264-2.911.5634-.7888.3075-1.4575.72-2.1228 1.3877-.6652.6677-1.075 1.3368-1.3802 2.127-.2954.7638-.4956 1.6365-.552 2.914-.0564 1.2775-.0689 1.6882-.0626 4.947.0062 3.2586.0206 3.6671.0825 4.9473.061 1.2765.264 2.1482.5635 2.9107.308.7889.72 1.4573 1.388 2.1228.6679.6655 1.3365 1.0743 2.1285 1.38.7632.295 1.6361.4961 2.9134.552 1.2773.056 1.6884.069 4.9462.0627 3.2578-.0062 3.668-.0207 4.9478-.0814 1.28-.0607 2.147-.2652 2.9098-.5633.7889-.3086 1.4578-.72 2.1228-1.3881.665-.6682 1.0745-1.3378 1.3795-2.1284.2957-.7632.4966-1.636.552-2.9124.056-1.2809.0692-1.6898.063-4.948-.0063-3.2583-.021-3.6668-.0817-4.9465-.0607-1.2797-.264-2.1487-.5633-2.9117-.3084-.7889-.72-1.4568-1.3876-2.1228C21.2982 1.33 20.628.9208 19.8378.6165 19.074.321 18.2017.1197 16.9244.0645 15.6471.0093 15.236-.005 11.977.0014 8.718.0076 8.31.0215 7.0301.0839m.1402 21.6932c-1.17-.0509-1.8053-.2453-2.2287-.408-.5606-.216-.96-.4771-1.3819-.895-.422-.4178-.6811-.8186-.9-1.378-.1644-.4234-.3624-1.058-.4171-2.228-.0595-1.2645-.072-1.6442-.079-4.848-.007-3.2037.0053-3.583.0607-4.848.05-1.169.2456-1.805.408-2.2282.216-.5613.4762-.96.895-1.3816.4188-.4217.8184-.6814 1.3783-.9003.423-.1651 1.0575-.3614 2.227-.4171 1.2655-.06 1.6447-.072 4.848-.079 3.2033-.007 3.5835.005 4.8495.0608 1.169.0508 1.8053.2445 2.228.408.5608.216.96.4754 1.3816.895.4217.4194.6816.8176.9005 1.3787.1653.4217.3617 1.056.4169 2.2263.0602 1.2655.0739 1.645.0796 4.848.0058 3.203-.0055 3.5834-.061 4.848-.051 1.17-.245 1.8055-.408 2.2294-.216.5604-.4763.96-.8954 1.3814-.419.4215-.8181.6811-1.3783.9-.4224.1649-1.0577.3617-2.2262.4174-1.2656.0595-1.6448.072-4.8493.079-3.2045.007-3.5825-.006-4.848-.0608M16.953 5.5864A1.44 1.44 0 1 0 18.39 4.144a1.44 1.44 0 0 0-1.437 1.4424M5.8385 12.012c.0067 3.4032 2.7706 6.1557 6.173 6.1493 3.4026-.0065 6.157-2.7701 6.1506-6.1733-.0065-3.4032-2.771-6.1565-6.174-6.1498-3.403.0067-6.156 2.771-6.1496 6.1738M8 12.0077a4 4 0 1 1 4.008 3.9921A3.9996 3.9996 0 0 1 8 12.0077"/>
+          </svg>
+        </a>
+      </div>
     `,
     proyecto: `
         <div id="form-proyecto" class="form-proyecto">
@@ -722,15 +742,22 @@ if (modalCreditos) {
             <div class="fp-slide active" data-index="0">
             <span class="fp-step-label">01 —</span>
             <label class="fp-question">¿Cómo te llamas?</label>
-            <input class="fp-input" type="text" id="fp-nombre" placeholder="Tu nombre" autocomplete="off" />
-            <button class="fp-btn-next" data-next="1">Continuar →</button>
+            <input class="fp-input" type="text" id="fp-nombre" placeholder="Tu nombre" autocomplete="off" maxlength="60" />
+            <span class="fp-field-error" id="fp-nombre-error"></span>
+            <div class="fp-slide-actions">
+                <button class="fp-btn-next" data-next="1">Continuar →</button>
+            </div>
             </div>
 
             <div class="fp-slide" data-index="1">
             <span class="fp-step-label">02 —</span>
             <label class="fp-question">¿Cuál es tu email?</label>
-            <input class="fp-input" type="email" id="fp-email" placeholder="hola@ejemplo.com" autocomplete="off" />
-            <button class="fp-btn-next" data-next="2">Continuar →</button>
+            <input class="fp-input" type="email" id="fp-email" placeholder="hola@ejemplo.com" autocomplete="off" maxlength="100" />
+            <span class="fp-field-error" id="fp-email-error"></span>
+            <div class="fp-slide-actions">
+                <button class="fp-btn-back" data-back="0">← Atrás</button>
+                <button class="fp-btn-next" data-next="2">Continuar →</button>
+            </div>
             </div>
 
             <div class="fp-slide" data-index="2">
@@ -744,13 +771,20 @@ if (modalCreditos) {
                 <button class="fp-option" data-value="Otro">💬 Otro</button>
             </div>
             <input type="hidden" id="fp-tipo" />
+            <div class="fp-slide-actions">
+                <button class="fp-btn-back" data-back="1">← Atrás</button>
+            </div>
             </div>
 
             <div class="fp-slide" data-index="3">
             <span class="fp-step-label">04 —</span>
             <label class="fp-question">Cuéntame un poco más. ¿En qué consiste el proyecto?</label>
-            <textarea class="fp-input fp-textarea" id="fp-descripcion" placeholder="Una breve descripción del proyecto, el sector, lo que necesitas..." rows="4"></textarea>
-            <button class="fp-btn-next" data-next="4">Continuar →</button>
+            <textarea class="fp-input fp-textarea" id="fp-descripcion" placeholder="Una breve descripción del proyecto, el sector, lo que necesitas..." rows="4" maxlength="600"></textarea>
+            <span class="fp-field-error" id="fp-descripcion-error"></span>
+            <div class="fp-slide-actions">
+                <button class="fp-btn-back" data-back="2">← Atrás</button>
+                <button class="fp-btn-next" data-next="4">Continuar →</button>
+            </div>
             </div>
 
             <div class="fp-slide" data-index="4">
@@ -760,7 +794,10 @@ if (modalCreditos) {
                 <input type="checkbox" id="fp-privacidad" class="fp-checkbox" />
                 <span>He leído y acepto la <a href="politica-de-privacidad.html" target="_blank" class="fp-privacy-link">política de privacidad</a></span>
             </label>
-            <button class="fp-btn-send" id="fp-btn-enviar" disabled>Enviar mensaje ✦</button>
+            <div class="fp-slide-actions">
+                <button class="fp-btn-back" data-back="3">← Atrás</button>
+                <button class="fp-btn-send" id="fp-btn-enviar" disabled>Enviar mensaje ✦</button>
+            </div>
             <p class="fp-error-msg" id="fp-error-msg"></p>
             </div>
 
@@ -778,19 +815,6 @@ if (modalCreditos) {
 
         </div>
         `,
-    cv: `
-      <h3>¡Claro! Aquí tienes mi CV 📄</h3>
-        <div style="text-align:center; margin-top: 1rem;">
-            <img 
-            id="cv-preview-img"
-            src="img/CV_MoniBe.png" 
-            alt="Vista previa del CV de MoniBe" 
-            style="max-width:100%; max-height:55vh; border-radius:8px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); margin-bottom: 1.2rem; cursor: zoom-in;"
-            >
-            <br>
-            <a href="img/CV_MoniBe.pdf" download class="contacto-btn-cv">Descargar CV ↓</a>
-        </div>
-    `,
     corazon: `
       <h3>Mamá!🫶</h3>
       <p style="color: #f7e1d7;">Claro que sí — dale al ❤️ de aquí abajo. Y gracias por ser mi fan número uno! <br> (También puedes darle al corazón aunque no seas mi madre 😋)</p>
@@ -875,43 +899,9 @@ function abrirPanel(tema) {
             });
         }
     }
-
-    // Lupa sobre imagen de CV
-    if (tema === 'cv') {
-        const imgCV = document.getElementById('cv-preview-img');
-        if (!imgCV) return;
-
-        imgCV.addEventListener('click', () => {
-            // Crear overlay
-            const overlay = document.createElement('div');
-            overlay.style.cssText = `
-            position: fixed; inset: 0; z-index: 9999;
-            background: rgba(0,0,0,0.85);
-            display: flex; align-items: center; justify-content: center;
-            cursor: zoom-out;
-            `;
-
-            const imgGrande = document.createElement('img');
-            imgGrande.src = imgCV.src;
-            imgGrande.style.cssText = `
-            max-width: 90vw; max-height: 90vh;
-            border-radius: 8px;
-            box-shadow: 0 8px 40px rgba(0,0,0,0.6);
-            `;
-
-            overlay.appendChild(imgGrande);
-            document.body.appendChild(overlay);
-
-            // Cerrar al clicar el fondo
-            overlay.addEventListener('click', () => overlay.remove());
-
-            // Cerrar con Escape
-            const onEsc = (e) => { if (e.key === 'Escape') { overlay.remove(); document.removeEventListener('keydown', onEsc); } };
-            document.addEventListener('keydown', onEsc);
-        });
-    }
 }
-  function cerrarPanel() {
+
+function cerrarPanel() {
     panel.classList.remove('activo');
     panel.setAttribute('aria-hidden', 'true');
     respuestaEl.innerHTML = '';
@@ -968,26 +958,73 @@ function abrirPanel(tema) {
     return active ? parseInt(active.dataset.index) : 0;
   }
 
+  function mostrarError(id, msg) {
+    const errorEl = document.getElementById(`${id}-error`);
+    const inputEl = document.getElementById(id);
+    if (errorEl) errorEl.textContent = msg;
+    if (inputEl) inputEl.classList.add('fp-invalid');
+  }
+
+  function limpiarError(id) {
+    const errorEl = document.getElementById(`${id}-error`);
+    const inputEl = document.getElementById(id);
+    if (errorEl) errorEl.textContent = '';
+    if (inputEl) inputEl.classList.remove('fp-invalid');
+  }
+
+  // ── Validadores por campo, con mensaje específico ──
+  function validarNombre() {
+    const val = document.getElementById('fp-nombre')?.value.trim() || '';
+    if (!val) { mostrarError('fp-nombre', 'Este campo no puede quedar en blanco.'); return false; }
+    if (val.length < 2) { mostrarError('fp-nombre', 'Escribe al menos 2 caracteres.'); return false; }
+    if (val.length > 60) { mostrarError('fp-nombre', 'Máximo 60 caracteres.'); return false; }
+    limpiarError('fp-nombre');
+    return true;
+  }
+
+  function validarEmail() {
+    const val = document.getElementById('fp-email')?.value.trim() || '';
+    if (!val) { mostrarError('fp-email', 'Este campo no puede quedar en blanco.'); return false; }
+    if (!val.includes('@')) { mostrarError('fp-email', 'Falta la arroba (@) en el correo.'); return false; }
+    const [usuario, dominio] = val.split('@');
+    if (!usuario) { mostrarError('fp-email', 'Falta la parte antes de la arroba (@).'); return false; }
+    if (!dominio || !dominio.includes('.')) { mostrarError('fp-email', 'Falta un punto (.) en el dominio, ej: gmail.com'); return false; }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val)) { mostrarError('fp-email', 'Ese formato de correo no es válido.'); return false; }
+    limpiarError('fp-email');
+    return true;
+  }
+
+  function validarDescripcion() {
+    const val = document.getElementById('fp-descripcion')?.value.trim() || '';
+    if (!val) { mostrarError('fp-descripcion', 'Cuéntame algo, aunque sea breve 🙂'); return false; }
+    if (val.length < 10) { mostrarError('fp-descripcion', 'Necesito al menos 10 caracteres para hacerme una idea.'); return false; }
+    if (val.length > 600) { mostrarError('fp-descripcion', 'Máximo 600 caracteres.'); return false; }
+    limpiarError('fp-descripcion');
+    return true;
+  }
+
+  // Quita el error en cuanto el usuario empieza a corregir
+  ['fp-nombre', 'fp-email', 'fp-descripcion'].forEach(id => {
+    document.getElementById(id)?.addEventListener('input', () => limpiarError(id));
+  });
+
+  // ── Botones "Atrás" ──
+  document.querySelectorAll('.fp-btn-back').forEach(btn => {
+    btn.addEventListener('click', () => {
+      goToSlide(parseInt(btn.dataset.back));
+    });
+  });
+
   // ── Botones "Continuar" ──
   document.querySelectorAll('.fp-btn-next').forEach(btn => {
     btn.addEventListener('click', () => {
       const nextIdx = parseInt(btn.dataset.next);
       const currentIdx = currentSlideIndex();
 
-      // Validación simple
-      if (currentIdx === 0) {
-        const val = document.getElementById('fp-nombre')?.value.trim();
-        if (!val) { document.getElementById('fp-nombre')?.focus(); return; }
-      }
-      if (currentIdx === 1) {
-        const val = document.getElementById('fp-email')?.value.trim();
-        const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(val);
-        if (!valid) { document.getElementById('fp-email')?.focus(); return; }
-      }
-      if (currentIdx === 3) {
-        const val = document.getElementById('fp-descripcion')?.value.trim();
-        if (!val) { document.getElementById('fp-descripcion')?.focus(); return; }
-      }
+      // Validación específica por slide
+      if (currentIdx === 0 && !validarNombre()) { document.getElementById('fp-nombre')?.focus(); return; }
+      if (currentIdx === 1 && !validarEmail()) { document.getElementById('fp-email')?.focus(); return; }
+      if (currentIdx === 3 && !validarDescripcion()) { document.getElementById('fp-descripcion')?.focus(); return; }
 
       goToSlide(nextIdx);
     });

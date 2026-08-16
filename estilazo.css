@@ -1279,6 +1279,47 @@ strong {
   min-height: 1.2em;
 }
 
+/* Errores de validación por campo (en rojo) */
+.fp-field-error {
+  display: block;
+  font-size: 0.8rem;
+  color: #ff8c8c;
+  min-height: 1.1em;
+  margin-top: -0.3rem;
+}
+
+.fp-input.fp-invalid,
+.fp-textarea.fp-invalid {
+  border-color: #ff8c8c !important;
+}
+
+/* Fila de acciones (Atrás + Continuar/Enviar) */
+.fp-slide-actions {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.4rem;
+}
+.fp-slide-actions .fp-btn-next,
+.fp-slide-actions .fp-btn-send {
+  margin-top: 0;
+}
+
+/* Botón "Atrás" */
+.fp-btn-back {
+  background: none;
+  border: none;
+  color: rgba(247,225,215,0.55);
+  font-family: 'Satoshi', sans-serif;
+  font-size: 0.85rem;
+  cursor: pointer;
+  padding: 0.5rem 0;
+  transition: color 0.2s;
+}
+.fp-btn-back:hover {
+  color: var(--color-bg-main);
+}
+
 /* ── Pantalla de Gracias ── */
 .fp-gracias {
   position: absolute;
