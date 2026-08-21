@@ -657,6 +657,24 @@ menuSectionsLinks.forEach(link => {
 });
 
 // =========================================================================
+// CERRAR EL MENÚ LATERAL AL TOCAR/CLICAR FUERA DE ÉL
+// =========================================================================
+
+document.addEventListener('click', (e) => {
+  // El estado real de apertura lo lleva terminalSide (clase 'menu-hidden')
+  if (!terminalSide || terminalSide.classList.contains('menu-hidden')) return;
+
+  // Si el clic ha sido dentro del panel del menú o sobre el propio botón hamburguesa, no hacemos nada
+  if (terminalSide.contains(e.target) || hamburger.contains(e.target)) return;
+
+  // Clic fuera del menú: cerramos fijando directamente el mismo estado final
+  // que deja el botón hamburguesa al cerrar (evitamos hamburger.click() para
+  // no disparar un evento sintético que vuelva a burbujear hasta aquí).
+  hamburger.classList.remove('active');
+  terminalSide.classList.add('menu-hidden');
+});
+
+// =========================================================================
 // CONTROL DE LA VENTANA EMERGENTE (MODAL) DE CRÉDITOS
 // =========================================================================
 

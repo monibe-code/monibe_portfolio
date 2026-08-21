@@ -397,11 +397,12 @@ input {
 }
 
 .nav-links li {
-    padding: 15px 0;
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .nav-links a {
+    display: block;
+    padding: 15px 0;
     color: var(--color-bg-subtle);
     font-family: 'Chillax', sans-serif; /* Títulos del menú estilizados */
     font-weight: 500;
@@ -3736,9 +3737,6 @@ strong {
 
   .nav-links a {
     font-size: 1rem;
-  }
-
-  .nav-links li {
     padding: 12px 0;
   }
 
